@@ -1,0 +1,968 @@
+/* ============= GOOGLE FONTS ============= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Zilla+Slab:wght@600&display=swap');
+/* ============= ROOT CSS ============= */
+:root {
+    --header-height: 3.5rem;
+
+    /* ============= Colors Code ============= */
+    --hue: 154;
+    --primary-color: hsl(var(--hue), 65%, 32%);
+    --primary-color-alt: hsl(var(--hue), 65%, 28%);
+    --primary-color-light: hsl(var(--hue), 65%, 66%);
+    --primary-color-lighten: hsl(var(--hue), 65%, 92%);
+    --primary-color-lightest: hsl(154, 40%, 62%);
+    --primary-color-gradient: linear-gradient(180deg,
+                              hsl(159, 35%, 45%),
+                              hsl(159, 55%, 28%));
+    --title-color: hsl(var(--hue), 4%, 15%);
+    --text-color: hsl(var(--hue), 4%, 35%);
+    --text-color-light: hsl(var(--hue), 4%, 55%);
+    --body-color: hsl(var(--hue), 0%, 100%);
+    --container-color: #FFFFFF;
+
+    /* ============= Font Family & Font Size ============= */
+    --logo-font: 'Zilla Slab', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+
+    /* ============= Font Weight ============= */
+    --medium-font: 500;
+    --semi-bold-font: 600;
+
+    /* ============= Margin Bottom Setting ============= */
+    --mb-05: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+
+    /* ============= Z-Index Setting ============= */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/* ============= Responsive For Root ============= */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: 0.875rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+/* ============= Base ============= */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--title-color);
+    font-weight: var(--semi-bold-font);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============= Reusable CSS Class ============= */
+.section {
+    padding: 5.5rem 0 1rem;
+    max-width: 100%;
+}
+
+.section_title,
+.section_title-center {
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-2);
+    line-height: 140%;
+}
+
+.section_title-center {
+    text-align: center;
+}
+
+.container {
+    max-width: 968px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.grid {
+    display: grid;
+}
+
+.main {
+    overflow: hidden;
+}
+
+/* ============= HEADER ============= */
+.header {
+    width: 100%;
+    background-color: var(--body-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+}
+
+.logo_name {
+    color: var(--primary-color);
+}
+
+/* ============= Nav ============= */
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_logo,
+.nav_toggle,
+.nav_close {
+    color: var(--title-color);
+}
+
+.nav_logo {
+    font-size: 1.4rem;
+    font-weight: bolder;
+    display: inline-flex;
+    transition: .3s;
+    font-family: var(--logo-font);
+}
+
+.nav_logo:hover {
+    color: var(--primary-color);
+}
+
+.nav_logo-icon {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+}
+
+.nav_toggle {
+    display: inline-flex;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.nav_close {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    cursor: pointer;
+}
+
+.nav_list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.card_profile {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color-lighten);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.user-profile {
+    width: 35px;
+}
+
+.nav_link {
+    color: var(--title-color);
+    font-weight: var(--medium-font);
+}
+
+.nav_link:hover {
+    color: var(--primary-color);
+    transition: .3s;
+}
+
+.nav .button {
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    background-color: var(--container-color);
+    border: 1px solid var(--primary-color);
+    transition: transform .3s ease-out;
+}
+
+.nav .button:hover {
+    color: var(--container-color);
+}
+
+@media screen and (max-width: 767px) {
+    .nav_menu {
+        position: fixed;
+        background-color: var(--container-color);
+        width: 70%;
+        height: 100%;
+        top: 0;
+        right: -100%;
+        box-shadow: -2px 0 4px hsla(var(--hue), 41%, 15%, .1);
+        padding: 4rem 0 0 3rem;
+        border-radius: 1rem 0 0 1rem;
+        transition: .3s;
+        z-index: var(--z-fixed);
+    }
+}
+
+/* ============= HERO ============= */
+.hero {
+    padding: 3.5rem 0.2rem;
+}
+
+.hero_container {
+    position: relative;
+    row-gap: 2rem;
+}
+
+.hero_img {
+    width: 350px;
+    justify-self: center;
+    border-radius: 60px 20px 20px 20px;
+}
+
+.hero_title {
+    font-size: var(--big-font-size);
+    line-height: 140%;
+    margin-bottom: var(--mb-1);
+}
+
+.hero_description {
+    margin-bottom: var(--mb-2-5);
+}
+
+/* ============= Button ============= */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--container-color);
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: var(--medium-font);
+    transition: transform .3s ease-out;
+}
+
+.button:hover {
+    background-color: var(--primary-color-alt);
+    transform: scale(1.03);
+}
+
+.button-flex {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.button-link {
+    color: var(--primary-color);
+    font-weight: var(--medium-font);
+    transition: transform .3s ease-out;
+}
+
+.button-link:hover {
+    transform: scale(1.03);
+}
+
+/* ============= INTRO ============= */
+.intro_container {
+    row-gap: 2rem;
+}
+
+.intro_img {
+    width: 280px;
+    justify-self: center;
+}
+
+.intro_title {
+    margin-bottom: var(--mb-1);
+}
+
+.intro_description {
+    margin-bottom: var(--mb-2);
+}
+
+.intro_details {
+    display: grid;
+    row-gap: 1rem;
+    margin-bottom: var(--mb-2-5);
+}
+
+.intro_details-description {
+    display: inline-flex;
+    column-gap: .5rem;
+    font-size: var(--small-font-size);
+}
+
+.intro_details-icon {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-top: .15rem;
+}
+
+/* ============= ROOM ============= */
+
+.room_container {
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+/* .room_title {
+    color: var(--container-color);
+} */
+
+.room_card {
+    background-color: var(--container-color);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: transform .3s ease-out;
+}
+
+.room_card-img {
+    display: inline-block;
+}
+
+.room_card-img img {
+    border-radius: 1rem;
+}
+
+.room_card-title {
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-05);
+}
+
+.room_card-description {
+    font-size: var(--small-font-size);
+    display: inline-flex;
+    color: var(--text-color);
+    column-gap: .3rem;
+}
+
+.room_card:hover,
+.room_card-img {
+    transform: scale(1.03);
+}
+
+/* ============= FACILITY ============= */
+.facility_description {
+    text-align: center;
+}
+
+.facility_container {
+    padding: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 3rem;
+}
+
+.facility_card {
+    display: grid;
+    position: relative;
+    box-shadow: 1px 1px 3px hsla(var(--hue), 41%, 15%, .1);
+    padding: 1rem;
+}
+
+.facility_icon {
+    font-size: 2.3rem;
+    position: relative;
+    justify-self: center;
+    margin-bottom: var(--mb-0-75);
+    transition: .3s;
+    color: var(--primary-color);
+}
+
+.facility_title {
+    text-align: center;
+    font-size: var(--small-font-size);
+    font-weight: var(--semi-bold-font);
+    color: var(--title-color);
+    margin-bottom: .25rem;
+}
+
+.facility_card:hover .facility_icon {
+    transform: translateY(-.5rem);
+}
+
+/* ============= CONTACT ============= */
+.contact_container {
+    row-gap: 3.5rem;
+}
+
+.contact_data {
+    display: grid;
+    row-gap: 2rem;
+}
+
+.contact_subtitle {
+    font-size: var(--normal-font-size);
+    font-weight: var(--medium-font);
+    color: var(--text-color);
+    margin-bottom: var(--mb-05);
+}
+
+.contact_description {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    color: var(--title-color);
+    font-weight: var(--medium-font);
+}
+
+.contact_icon {
+    font-size: 1.25rem;
+}
+
+.contact_inputs {
+    display: grid;
+    row-gap: 2rem;
+    margin-bottom: var(--mb-2-5);
+}
+
+.contact_content {
+    position: relative;
+    height: 3rem;
+    border-bottom: 1px solid var(--text-color-light);
+}
+
+.contact_input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1rem 1rem 0;
+    background: none;
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    z-index: 1;
+}
+
+.contact_label {
+    position: absolute;
+    top: 0.75rem;
+    width: 100%;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    transition: .3s;
+}
+
+.contact_area {
+    height: 7rem;
+}
+
+.contact_area textarea {
+    resize: none;
+}
+
+.contact_input:focus + .contact_label {
+    top: -.75rem;
+    left: 0;
+    font-size: var(--smaller-font-size);
+    z-index: 10;
+}
+
+.contact_input:not(:placeholder-shown).contact_input:not(:focus) + .contact_label {
+    top: -.75rem;
+    font-size: var(--smaller-font-size);
+    z-index: 10;
+}
+
+/* ============= TESTIMONIAL ============= */
+.testimonial {
+    background-color: var(--primary-color-lighten);
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.testimonial_section {
+    row-gap: 1.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.testimonial_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial_content {
+    background-color: var(--container-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.testimonial_profile {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-bottom: var(--mb-1);
+    font-size: var(--small-font-size);
+}
+
+.profile-img {
+    max-width: 80px;
+    border-radius: 50%;
+    max-height: 60px;
+}
+
+.room-type {
+    font-weight: var(--medium-font);
+    color: var(--title-color);
+}
+
+.testimonial_information {
+    font-size: var(--small-font-size);
+}
+
+.indicators {
+    font-size: 2rem;
+}
+
+.right-indicators {
+    position: absolute;
+    cursor: pointer;
+}
+
+.left-indicators {
+    display: none;
+    padding-left: 1rem;
+}
+
+.testimonials {
+    display: none;
+}
+
+/* ============= FOOTER ============= */
+.footer_container {
+    row-gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+}
+
+.footer_logo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--title-color);
+    font-family: 'Zilla Slab', sans-serif;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    margin-bottom: var(--mb-2-5);
+}
+
+.footer_title {
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-1-5);
+}
+
+.footer-description {
+    color: var(--title-color);
+    font-weight: var(--medium-font);
+}
+
+.team-footer-description {
+    color: var(--title-color);
+    margin: 1rem 0;
+    padding: 0.5rem 0.8rem;
+    border-left: 7px solid #BEBEBE;
+    font-size: var(--small-font-size);
+}
+
+.location-description {
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    margin: 1rem 0;
+}
+
+.footer_data {
+    display: grid;
+    row-gap: .75rem;
+}
+
+.footer_information a {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    transition: font-weight .5s ease-out;
+}
+
+.footer_information a:hover {
+    color: var(--primary-color);
+    font-weight: var(--medium-font);
+}
+
+.footer_social {
+    display: inline-flex;
+    column-gap: .75rem;
+}
+
+.footer_social-link {
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: .3s;
+}
+
+.footer_social-link:hover {
+    transform: translateY(-.25rem);
+    color: var(--primary-color);
+}
+
+.footer_cards {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.footer_card {
+    width: 40px;
+}
+
+.footer_copyright {
+    text-align: center;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+    margin: 5rem 0 1.5rem;
+}
+
+/* ============= Active Class ============= */
+.active {
+    position: relative;
+    color: var(--primary-color);
+}
+
+.active::after {
+    content: '';
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    width: 70%;
+    height: 2.2px;
+    background-color: var(--primary-color);
+}
+
+/* ============= Scroll Up ============= */
+.scroll_up {
+    position: fixed;
+    background-color: var(--primary-color);
+    right: 1rem;
+    bottom: -30%;
+    display: inline-flex;
+    padding: .45rem;
+    border-radius: .25rem;
+    z-index: var(--z-tooltip);
+    opacity: .8;
+    transition: .4s;
+}
+
+.scroll_up-icon {
+    font-size: 1.2rem;
+    color: var(--container-color);
+}
+
+.scroll_up:hover {
+    background-color: var(--primary-color-alt);
+    opacity: 1;
+
+}
+
+.show-scroll {
+    bottom: 3rem;
+}
+
+/* ============= Scroll Bar ============= */
+::-webkit-scrollbar {
+    width: .6rem;
+    background: hsl(var(--hue), 4%, 53%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--hue), 24%, 29%);
+    border-radius: .5rem;
+}
+
+
+
+
+
+/* ============= Small Screen ============= */
+
+@media screen and (max-width: 320px) {
+    .container {
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
+
+    .hero_img {
+        width: 200px;
+    }
+
+    .hero_title {
+        font-size: var(--h1-font-size);
+    }
+
+    .room_card {
+        padding: 1.5rem;
+    }
+
+    .facility_container {
+        grid-template-columns: .6fr;
+        justify-content: center;
+    }
+
+    .left-indicators {
+        display: block;
+        position: absolute;
+        left: 0;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .room_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facility_description {
+        padding: 0 4rem;
+    }
+
+    .facility_container {
+        grid-template-columns: repeat(2, 170px);
+        justify-content: center;
+        column-gap: 5rem;
+    }
+}
+
+/* ============= Medium Screen ============= */
+@media screen and (max-width: 767px) {
+    .left-indicators {
+        display: block;
+        position: absolute;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .right-indicators {
+        right: 0;
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    body {
+        margin: 0;
+    }
+
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+        column-gap: 3rem;
+    }
+
+    .nav_toggle,
+    .nav_close {
+        display: none;
+    }
+
+    .nav_list {
+        flex-direction: row;
+        column-gap: 3rem;
+        align-items: center;
+    }
+
+    .nav_menu {
+        margin-left: auto;
+    }
+
+    .hero_container,
+    .intro_container {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    .hero {
+        padding: 10rem 0 5rem;
+    }
+
+    .hero_img {
+        width: 280px;
+        order: 1;
+    }
+
+    .facility_container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contact_container,
+    .footer_container,
+    .testimonial_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial_section {
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .footer_container {
+        column-gap: 3rem;
+    }
+}
+
+/* ============= Larger Screen ============= */
+
+@media screen and (min-width: 992px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section {
+        padding: 8rem 0 1rem;
+    }
+
+    .section_title,
+    .section_title-center {
+        font-size: var(--h1-font-size);
+    }
+
+    .hero {
+        padding: 13rem 0 5rem;
+    }
+
+    .hero_img {
+        width: 450px;
+    }
+
+    .hero_description {
+        padding-right: 7rem;
+    }
+
+    .intro_img {
+        width: 380px;
+    }
+
+    .room_container {
+        grid-template-columns: repeat(4,1fr);
+        gap: 2rem;
+    }
+
+    .room_card {
+        padding: .8rem;
+    }
+
+    .room_card-title {
+        font-size: var(--normal-font-size);
+    }
+
+    /* .room_card-img {
+        width: 220px;
+    } */
+
+    .facility_description {
+        padding: 0 16rem;
+    }
+
+    .facility_container {
+        padding: 4rem;
+    }
+
+    .facility_title {
+        font-size: var(--normal-font-size);
+    }
+
+    .contact {
+        padding-bottom: 8rem;
+    }
+
+    .footer_logo {
+        font-size: var(--h3-font-size);
+    }
+
+    .footer_container {
+        grid-template-columns: 1fr .5fr .5fr .5fr;
+    }
+
+    .footer_copyright {
+        padding: 7rem 0 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .intro_container {
+        column-gap: 7rem;
+    }
+
+    .scroll_up {
+        right: 3rem;
+    }
+}
+
+/* Show Menu */
+.show-menu {
+    right: 0;
+}
+
+/* Change Background header */
+.scroll-header {
+    box-shadow: 0 1px 4px hsla(var(--hue), 4%, 15%, .1);
+}

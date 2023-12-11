@@ -1,0 +1,501 @@
+/* ============= GOOGLE FONTS ============= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Zilla+Slab:wght@600&display=swap');
+/* ============= ROOT CSS ============= */
+:root {
+    --header-height: 3.5rem;
+
+    /* ============= Colors Code ============= */
+    --hue: 154;
+    --primary-color: hsl(var(--hue), 65%, 32%);
+    --primary-color-alt: hsl(var(--hue), 65%, 28%);
+    --primary-color-light: hsl(var(--hue), 65%, 66%);
+    --primary-color-lighten: hsl(var(--hue), 65%, 92%);
+    --title-color: hsl(var(--hue), 4%, 15%);
+    --text-color: hsl(var(--hue), 4%, 35%);
+    --text-color-light: hsl(var(--hue), 4%, 55%);
+    --body-color: hsl(var(--hue), 0%, 100%);
+    --container-color: #FFFFFF;
+
+    /* ============= Font Family & Font Size ============= */
+    --logo-font: 'Zilla Slab', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+
+    /* ============= Font Weight ============= */
+    --medium-font: 500;
+    --semi-bold-font: 600;
+
+    /* ============= Margin Bottom Setting ============= */
+    --mb-05: 0.5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+
+    /* ============= Z-Index Setting ============= */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/* ============= Responsive For Root ============= */
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: 0.875rem;
+        --smaller-font-size: 0.813rem;
+    }
+}
+
+/* ============= Base ============= */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--title-color);
+    font-weight: var(--semi-bold-font);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============= Reusable CSS Class ============= */
+.section {
+    padding: 5.5rem 0 1rem;
+}
+
+.section_title,
+.section_title-center {
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-2);
+    line-height: 140%;
+}
+
+.section_title-center {
+    text-align: center;
+}
+
+.container {
+    max-width: 968px;
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
+}
+
+.grid {
+    display: grid;
+}
+
+.main {
+    overflow: hidden;
+}
+
+/* ============= HEADER ============= */
+.header {
+    width: 100%;
+    background-color: var(--body-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+}
+
+.logo_name {
+    color: var(--primary-color);
+}
+
+/* ============= Nav ============= */
+.nav_room-detail {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_room-title {
+    color: var(--title-color);
+    font-size: var(--h3-font-size);
+    font-weight: bolder;
+    display: inline-flex;
+    align-items: center;
+    column-gap: .8rem;
+    transition: .3s;
+}
+
+.nav_room-icon {
+    font-size: var(--h2-font-size);
+    transition: color .3s ease-out;
+}
+
+.nav_room-icon:hover {
+    color: var(--primary-color);
+}
+
+@media screen and (max-width: 767px) {
+    .nav_menu {
+        position: fixed;
+        background-color: var(--container-color);
+        width: 70%;
+        height: 100%;
+        top: 0;
+        right: -100%;
+        box-shadow: -2px 0 4px hsla(var(--hue), 41%, 15%, .1);
+        padding: 4rem 0 0 3rem;
+        border-radius: 1rem 0 0 1rem;
+        transition: .3s;
+        z-index: var(--z-fixed);
+    }
+}
+
+/* ============= Button ============= */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--container-color);
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: var(--medium-font);
+    transition: transform .3s ease-out;
+}
+
+.button:hover {
+    background-color: var(--primary-color-alt);
+    transform: scale(1.03);
+}
+
+.button-flex {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.button-link {
+    color: var(--primary-color);
+    font-weight: var(--medium-font);
+    transition: transform .3s ease-out;
+}
+
+.button-link:hover {
+    transform: scale(1.03);
+}
+
+/* ============= First Section ============= */
+.first-section {
+    padding: 3rem 0.2rem;
+}
+
+.first-section-container {
+    row-gap: 2rem;
+}
+
+.first_img {
+    width: 320px;
+    justify-self: center;
+    border-radius: 8px;
+}
+
+.first_title {
+    margin-bottom: var(--mb-1);
+    color: var(--primary-color);
+    font-size: var(--h3-font-size);
+}
+
+.room_description {
+    margin-bottom: var(--mb-2);
+}
+
+/* ============= Second Section ============= */
+.second-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+    justify-items: center;
+}
+
+.second-section-content {
+    display: grid;
+    position: relative;
+    padding: 1rem;
+}
+
+.second-icon {
+    font-size: 2.3rem;
+    position: relative;
+    justify-self: center;
+    margin-bottom: var(--mb-0-75);
+    color: var(--primary-color);
+}
+
+.second-description {
+    text-align: center;
+    font-weight: var(--semi-bold-font);
+    margin-bottom: .25rem;
+}
+
+/* ============= FOOTER ============= */
+.footer_container {
+    row-gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+}
+
+.footer_logo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--title-color);
+    font-family: 'Zilla Slab', sans-serif;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    margin-bottom: var(--mb-2-5);
+}
+
+.footer_title {
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-1-5);
+}
+
+.footer-description {
+    color: var(--title-color);
+    font-weight: var(--medium-font);
+}
+
+.team-footer-description {
+    color: var(--title-color);
+    margin: 1rem 0;
+    padding: 0.5rem 0.8rem;
+    border-left: 7px solid #BEBEBE;
+    font-size: var(--small-font-size);
+}
+
+.location-description {
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    margin: 1rem 0;
+}
+
+.footer_data {
+    display: grid;
+    row-gap: .75rem;
+}
+
+.footer_information a {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    transition: font-weight .5s ease-out;
+}
+
+.footer_information a:hover {
+    color: var(--primary-color);
+    font-weight: var(--medium-font);
+}
+
+.footer_social {
+    display: inline-flex;
+    column-gap: .75rem;
+}
+
+.footer_social-link {
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: .3s;
+}
+
+.footer_social-link:hover {
+    transform: translateY(-.25rem);
+    color: var(--primary-color);
+}
+
+.footer_cards {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.footer_card {
+    width: 40px;
+}
+
+.footer_copyright {
+    text-align: center;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+    margin: 5rem 0 1.5rem;
+}
+
+/* ============= Scroll Up ============= */
+.scroll_up {
+    position: fixed;
+    background-color: var(--primary-color);
+    right: 1rem;
+    bottom: -30%;
+    display: inline-flex;
+    padding: .45rem;
+    border-radius: .25rem;
+    z-index: var(--z-tooltip);
+    opacity: .8;
+    transition: .4s;
+}
+
+.scroll_up-icon {
+    font-size: 1.2rem;
+    color: var(--container-color);
+}
+
+.scroll_up:hover {
+    background-color: var(--primary-color-alt);
+    opacity: 1;
+
+}
+
+.show-scroll {
+    bottom: 3rem;
+}
+
+/* ============= Scroll Bar ============= */
+::-webkit-scrollbar {
+    width: .6rem;
+    background: hsl(var(--hue), 4%, 53%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--hue), 24%, 29%);
+    border-radius: .5rem;
+}
+
+/* Change Background header */
+.scroll-header {
+    box-shadow: 0 1px 4px hsla(var(--hue), 4%, 15%, .1);
+}
+
+/* ============= Small Screen ============= */
+
+@media screen and (max-width: 320px) {
+    .container {
+        margin-left: var(--mb-1);
+        margin-right: var(--mb-1);
+    }
+}
+
+/* ============= Medium Screen ============= */
+
+@media screen and (min-width: 767px) {
+    body {
+        margin: 0;
+    }
+
+    .nav_room-detail {
+        height: calc(var(--header-height) + 1.5rem);
+        column-gap: 3rem;
+    }
+
+    .nav_room-title {
+        column-gap: 1.5rem;
+    }
+
+    .first-section {
+        padding: 9rem 0 5rem;
+    }
+
+    .second-container {
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .first-section-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer_container {
+        column-gap: 3rem;
+    }
+}
+
+/* ============= Larger Screen ============= */
+
+@media screen and (min-width: 992px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section {
+        padding: 8rem 0 1rem;
+    }
+
+    .section_title,
+    .section_title-center {
+        font-size: var(--h1-font-size);
+    }
+
+    .first_img {
+        width: 380px;
+    }
+
+    .second-container {
+        padding: 3rem;
+    }
+
+    .footer_logo {
+        font-size: var(--h3-font-size);
+    }
+
+    .footer_container {
+        grid-template-columns: 1fr .5fr .5fr .5fr;
+    }
+
+    .footer_copyright {
+        padding: 7rem 0 2rem;
+    }
+}
